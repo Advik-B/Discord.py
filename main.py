@@ -2,11 +2,12 @@ import time
 import discord
 import os
 import requests
-import json
+import func
 import discord.ext
 import subprocess
 
-f= open('./token' , 'r')
+#defining things
+f= open('./.token' , 'r')
 prefix = 'py!'
 client = discord.Client()
 
@@ -17,11 +18,18 @@ async def on_ready():
 @client.event #epic
 async def on_message(message):
     msg = message.content
+    _msg = str(message.content)
     if message.author == client.user:
         return
     
-    if f'<@!{client.user.id}>' in msg or f'<@{client.user.id}>' in msg:
+    if  _msg.startswith(f'<@!{client.user.id}>') or _msg.startswith(f'<@{client.user.id}>'):
         await message.reply(f'<@!{message.author.id}> My prefix is `{prefix}`')
+
+    if  _msg.startswith(prefix):
+        code = _msg.split('```py')[-1].replace('```' , '').replace(prefix , '')
+        out = func.evaluate(code)
+        await message.reply(out)
+
 
 client.run(f.read())
 

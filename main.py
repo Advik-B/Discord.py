@@ -1,10 +1,6 @@
-import time
 import discord
-import os
-import requests
 import func
 import discord.ext
-import subprocess
 
 #defining things
 f= open('./.token' , 'r')

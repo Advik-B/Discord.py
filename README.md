@@ -1,2 +1,2 @@
 # Discord.py
-Trying to code a discord bot
+~~Trying to code a discord bot~~ Done!

@@ -23,7 +23,10 @@ async def on_message(message):
 
     if  _msg.startswith(prefix):
         code = _msg.split('```py')[-1].replace('```' , '').replace(prefix , '')
-        out = func.evaluate(code)
+        try:
+            out = func.evaluate(code)
+        except func.EvalError:
+            out = 'Umm..... `input()` or something similar is not supported :broken_heart:'
         await message.reply(out)
 
 

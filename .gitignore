@@ -3,6 +3,7 @@
 *.pyc
 
 *__pycache__/
+*build/
 
 *.token
 *.spec
@@ -11,3 +12,6 @@
 *.qlm0b7oa
 *.pyz
 *.pkg
+*.zip
+*.html
+*.exe

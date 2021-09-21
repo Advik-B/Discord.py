@@ -1,9 +1,8 @@
 import discord
 import func
-import discord.ext
+import os
 
 #defining things
-f= open('./.token' , 'r')
 prefix = 'py!'
 client = discord.Client()
 
@@ -30,6 +29,4 @@ async def on_message(message):
         await message.reply(out)
 
 
-client.run(f.read())
-
-f.close()
+client.run(os.getenv('TOKEN'))
